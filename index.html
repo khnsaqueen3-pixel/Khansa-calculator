@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KHANSA NAZ — Scientific Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="top-bar">
+      <h1 class="brand">KHANSA NAZ</h1>
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle dark and light mode">
+        <span class="theme-icon" aria-hidden="true">◐</span>
+        <span class="theme-label">Dark</span>
+      </button>
+    </header>
+
+    <section class="calculator" aria-label="Scientific calculator">
+      <div class="display">
+        <div class="expression" id="expression" aria-live="polite"></div>
+        <div class="result" id="result">0</div>
+      </div>
+
+      <div class="keys" role="group" aria-label="Calculator keys">
+        <button type="button" data-action="deg" class="key sci">DEG</button>
+        <button type="button" data-fn="sin" class="key sci">sin</button>
+        <button type="button" data-fn="cos" class="key sci">cos</button>
+        <button type="button" data-fn="tan" class="key sci">tan</button>
+        <button type="button" data-action="clear" class="key util">AC</button>
+
+        <button type="button" data-fn="asin" class="key sci">sin⁻¹</button>
+        <button type="button" data-fn="acos" class="key sci">cos⁻¹</button>
+        <button type="button" data-fn="atan" class="key sci">tan⁻¹</button>
+        <button type="button" data-fn="sqrt" class="key sci">√</button>
+        <button type="button" data-action="backspace" class="key util">⌫</button>
+
+        <button type="button" data-fn="ln" class="key sci">ln</button>
+        <button type="button" data-fn="log" class="key sci">log</button>
+        <button type="button" data-fn="exp" class="key sci">eˣ</button>
+        <button type="button" data-fn="pow10" class="key sci">10ˣ</button>
+        <button type="button" data-op="^" class="key op">xʸ</button>
+
+        <button type="button" data-fn="factorial" class="key sci">n!</button>
+        <button type="button" data-const="pi" class="key sci">π</button>
+        <button type="button" data-const="e" class="key sci">e</button>
+        <button type="button" data-action="paren-open" class="key sci">(</button>
+        <button type="button" data-action="paren-close" class="key sci">)</button>
+
+        <button type="button" data-num="7" class="key">7</button>
+        <button type="button" data-num="8" class="key">8</button>
+        <button type="button" data-num="9" class="key">9</button>
+        <button type="button" data-op="/" class="key op">÷</button>
+        <button type="button" data-fn="percent" class="key op">%</button>
+
+        <button type="button" data-num="4" class="key">4</button>
+        <button type="button" data-num="5" class="key">5</button>
+        <button type="button" data-num="6" class="key">6</button>
+        <button type="button" data-op="*" class="key op">×</button>
+        <button type="button" data-fn="inv" class="key op">1/x</button>
+
+        <button type="button" data-num="1" class="key">1</button>
+        <button type="button" data-num="2" class="key">2</button>
+        <button type="button" data-num="3" class="key">3</button>
+        <button type="button" data-op="-" class="key op">−</button>
+        <button type="button" data-fn="square" class="key op">x²</button>
+
+        <button type="button" data-num="0" class="key zero">0</button>
+        <button type="button" data-action="dot" class="key">.</button>
+        <button type="button" data-action="negate" class="key">±</button>
+        <button type="button" data-op="+" class="key op">+</button>
+        <button type="button" data-action="equals" class="key equals">=</button>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

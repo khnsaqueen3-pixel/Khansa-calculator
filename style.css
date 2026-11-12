@@ -1,0 +1,235 @@
+:root {
+  --bg: #ffffff;
+  --surface: #f3f3f3;
+  --ink: #000000;
+  --ink-muted: #444444;
+  --display-bg: #eaeaea;
+  --btn: #f5c518;
+  --btn-hover: #e0b100;
+  --btn-active: #c99c00;
+  --btn-text: #000000;
+  --util: #ffd966;
+  --op: #f0b429;
+  --equals: #d4a017;
+  --shadow: rgba(0, 0, 0, 0.12);
+  --ring: #000000;
+  --page-grad: radial-gradient(ellipse at top, #fff9e6 0%, #ffffff 55%);
+}
+
+[data-theme="dark"] {
+  --bg: #121212;
+  --surface: #1c1c1c;
+  --ink: #f5f5f5;
+  --ink-muted: #b0b0b0;
+  --display-bg: #0a0a0a;
+  --btn: #f5c518;
+  --btn-hover: #ffd84d;
+  --btn-active: #e0b100;
+  --btn-text: #000000;
+  --util: #c9a227;
+  --op: #e6b422;
+  --equals: #f5c518;
+  --shadow: rgba(0, 0, 0, 0.45);
+  --ring: #f5c518;
+  --page-grad: radial-gradient(ellipse at top, #2a2208 0%, #121212 55%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  color: var(--ink);
+  background: var(--page-grad);
+  background-color: var(--bg);
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+.app {
+  width: min(460px, 100% - 1.5rem);
+  margin: 1.5rem auto 2.5rem;
+  animation: rise 0.55s ease both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.brand {
+  margin: 0;
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(1.35rem, 5vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 2px solid var(--ink);
+  background: var(--btn);
+  color: var(--btn-text);
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.45rem 0.75rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--btn-hover);
+  transform: translateY(-1px);
+}
+
+.theme-toggle:active {
+  transform: translateY(1px);
+}
+
+.theme-icon {
+  display: inline-block;
+  transition: transform 0.4s ease;
+}
+
+[data-theme="dark"] .theme-icon {
+  transform: rotate(180deg);
+}
+
+.calculator {
+  background: var(--surface);
+  border: 2px solid var(--ink);
+  padding: 1rem;
+  box-shadow: 0 16px 40px var(--shadow);
+  transition: background-color 0.35s ease, border-color 0.35s ease;
+}
+
+.display {
+  background: var(--display-bg);
+  border: 2px solid var(--ink);
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.9rem;
+  min-height: 5.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.35rem;
+  overflow: hidden;
+}
+
+.expression {
+  min-height: 1.25rem;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  text-align: right;
+  word-break: break-all;
+}
+
+.result {
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(1.6rem, 7vw, 2.15rem);
+  font-weight: 700;
+  text-align: right;
+  color: var(--ink);
+  word-break: break-all;
+  transition: color 0.25s ease;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.45rem;
+}
+
+.key {
+  appearance: none;
+  border: 2px solid var(--ink);
+  background: var(--btn);
+  color: var(--btn-text);
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  min-height: 2.85rem;
+  padding: 0.35rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.key:hover {
+  background: var(--btn-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 0 var(--ink);
+}
+
+.key:active {
+  transform: translateY(1px);
+  background: var(--btn-active);
+  box-shadow: none;
+}
+
+.key:focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.key.sci {
+  font-size: 0.78rem;
+}
+
+.key.util {
+  background: var(--util);
+}
+
+.key.op {
+  background: var(--op);
+}
+
+.key.equals {
+  background: var(--equals);
+  font-size: 1.15rem;
+}
+
+.key.zero {
+  grid-column: span 1;
+}
+
+@media (max-width: 420px) {
+  .keys {
+    gap: 0.35rem;
+  }
+
+  .key {
+    min-height: 2.55rem;
+    font-size: 0.82rem;
+  }
+
+  .key.sci {
+    font-size: 0.7rem;
+  }
+}
